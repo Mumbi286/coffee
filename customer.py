@@ -17,5 +17,11 @@ class Customer:
         if not (1 <= len(value) <= 50):
             raise ValueError("Customer name must be between 1 and 15 characters")
         self.name = value #stores the customer name
+    def orders(self):
+        #lets bring all the orders together
+        from order import Order
+        return [order for order in Order.all_orders if order.customer == self] #we want to go through all orders and return those that match the customer instance
 
-    pass
+    def coffees(self):
+        #return a list of coffees that the customer has ordered
+        return list(set(order.coffee for order in self.orders())) #used set to avoid duplicate coffees

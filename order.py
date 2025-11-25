@@ -7,7 +7,7 @@ class Order:
         self.coffee = coffee
         self.price = price
     
-    #getter for the customer
+    #getter for the customer and returns the Customer instance
     @property
     def order_customer(self):
         return self._customer
@@ -20,7 +20,7 @@ class Order:
             raise ValueError("Order customer must be a Customer instance")
         self._customer = value #stores the private customer instance
 
-    #getter for the coffee
+    #getter for the coffee and returns the Coffee instance
     @property
     def order_coffee(self):
         return self._coffee #returns the private coffee instance
@@ -44,5 +44,3 @@ class Order:
         if not (0 <= value <= 100):
             raise ValueError("Order price must be between 0 and 100")
         self._price = value  # stores the private price value
-
-    pass
