@@ -25,3 +25,10 @@ class Customer:
     def coffees(self):
         #return a list of coffees that the customer has ordered
         return list(set(order.coffee for order in self.orders())) #used set to avoid duplicate coffees
+
+    def create_order(self, coffee, price):
+        #create a new order for the customer
+        from order import Order
+        new_order = Order(self, coffee, price) #create a new order instance
+        Order.all_orders.append(new_order) #add the new order to the list of all orders
+        return new_order #return the newly created order
