@@ -19,6 +19,7 @@ class Coffee:
             raise ValueError("Coffee name must be between 1 and 50 characters")
         self.name = value #stores the coffee name
 
+    #order 
     def add_order(self):
         #lets bring all the orders together
         from order import Order
@@ -28,6 +29,7 @@ class Coffee:
         #return the number of orders for this coffee
         return len(self.add_order()) #returns the length of the list of orders for this coffee
 
+    #prices
     def price(self):
         order_prices = [order.price for order in self.add_order()] #gets the prices of all orders for this coffee
          #calculate the average price of the coffee orders
